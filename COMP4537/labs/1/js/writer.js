@@ -27,10 +27,9 @@ function updateNotes() {
 }
 
 function removePost(x) {
-  console.log("variable");
-  console.log(x.toString());
   var removalPost = document.getElementById(x);
   removalPost.remove();
+  updateNotes();
 }
 
 var postIndex = 0;

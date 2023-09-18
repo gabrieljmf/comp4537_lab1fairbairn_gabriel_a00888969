@@ -3,12 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>COMP4537 - Lab 1 - Gabriel Fairbairn - A00888969</title>
   </head>
   <body>
+    <div id="timeNote">
+      Last read at:
+      <div id="timeStamp"></div>
+    </div>
     <h1>Reader</h1>
-    <form class="entry">Enter text here</form>
-    <div class="remove" onClick="remove()"></div>
+    <div id="allPosts"></div>
+    <button onclick="updateReadTime()">Update</button>
+    <a href="writer.html"><button>Writer</button></a>
     <a href="index.html"><button>Back</button></a>
+    <script src="js/reader.js"></script>
   </body>
 </html>
