@@ -1,3 +1,11 @@
 #timeNote {
   text-align: right;
 }
+
+#readNote {
+  border-style: solid;
+  border-width: 0.2px;
+  min-height: 1rem;
+  max-width: 10rem;
+  border-radius: 2px;
+}

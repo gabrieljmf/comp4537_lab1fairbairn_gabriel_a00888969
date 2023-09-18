@@ -20,6 +20,7 @@ function updateReader() {
 
   for (i = 0; i < arrayNotes.length; i++) {
     var newDiv = document.createElement("div");
+    newDiv.setAttribute("id", "readNote");
     newDiv.innerHTML = arrayNotes[i];
     allPosts.appendChild(newDiv);
   }
