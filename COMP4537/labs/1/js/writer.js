@@ -1,3 +1,31 @@
+function updateDateTime() {
+  const now = new Date();
+  const currentDateTime = now.toLocaleString();
+
+  document.getElementById("timeStamp").innerHTML = currentDateTime;
+
+  localStorage.setItem("time", currentDateTime);
+  console.log(localStorage.getItem("time"));
+
+  updateNotes();
+}
+
+function updateNotes() {
+  const allPostInput = document
+    .getElementById("allPosts")
+    .getElementsByTagName("input");
+
+  var postArray = [...allPostInput];
+  var array = [];
+
+  for (i = 0; i < postArray.length; i++) {
+    array[i] = postArray[i].value;
+  }
+
+  localStorage.setItem("notes", JSON.stringify(array));
+  console.log(localStorage.getItem("notes"));
+}
+
 function removePost(x) {
   console.log("variable");
   console.log(x.toString());
@@ -5,13 +33,6 @@ function removePost(x) {
   removalPost.remove();
 }
 
-function updateDateTime() {
-  const now = new Date();
-  const currentDateTime = now.toLocaleString();
-
-  document.getElementById("timeStamp").innerHTML = currentDateTime;
-  console.log(currentDateTime);
-}
 var postIndex = 0;
 
 function add() {
@@ -20,6 +41,7 @@ function add() {
 
   var newInput = document.createElement("input");
   newInput.setAttribute("placeholder", "Enter text here");
+  newInput.setAttribute("id", "input");
   newInput.setAttribute("type", "text");
 
   var newRemove = document.createElement("button");
@@ -34,12 +56,7 @@ function add() {
   var postsDiv = document.getElementById("allPosts");
   postsDiv.appendChild(newDiv);
 
-  console.log(newDiv);
-  console.log(postIndex);
   postIndex++;
 }
 
-function test() {
-  console.log("working");
-}
-// setInterval(updateDateTime, 2000);
+setInterval(updateDateTime, 2000);
