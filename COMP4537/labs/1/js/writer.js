@@ -1,20 +1,41 @@
-function test() {
+function post() {
   console.log("Script running");
 }
 
-test();
+function removePost() {
+  console.log("Removed");
+}
 
-// function updateDateTime() {
-//   // create a new `Date` object
-//   const now = new Date();
+function updateDateTime() {
+  const now = new Date();
+  const currentDateTime = now.toLocaleString();
 
-//   // get the current date and time as a string
-//   const currentDateTime = now.toLocaleString();
+  document.getElementById("timeStamp").innerHTML = currentDateTime;
+  console.log(currentDateTime);
+}
 
-//   // update the `textContent` property of the `span` element with the `id` of `datetime`
-//   document.getElementById("timeStamp").innerHTML = currentDateTime;
-//   console.log(currentDateTime);
-// }
+function add() {
+  console.log("function works");
+  var newForm = document.createElement("form");
+  newForm.setAttribute("id", "entry");
+  console.log(newForm);
 
-// // call the `updateDateTime` function every second
+  var newInput = document.createElement("input");
+  newInput.setAttribute("placeholder", "Enter text here");
+  newInput.setAttribute("type", "text");
+
+  var newRemove = document.createElement("button");
+  const removeText = document.createTextNode("Remove");
+  newRemove.setAttribute("id", "remove");
+  newRemove.setAttribute("onclick", "removePost()");
+  newRemove.appendChild(removeText);
+
+  newForm.appendChild(newInput);
+  newForm.appendChild(newRemove);
+  const postsDiv = document.getElementById("posts");
+  postsDiv.appendChild(newForm);
+  var br = document.createElement("br");
+  postsDiv.appendChild(br);
+}
+
 // setInterval(updateDateTime, 2000);
