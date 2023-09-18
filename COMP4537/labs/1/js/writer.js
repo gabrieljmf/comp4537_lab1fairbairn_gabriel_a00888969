@@ -21,9 +21,7 @@ function startNotes() {
   let arrayNotes = JSON.parse(notesString);
 
   for (i = 0; i < arrayNotes.length; i++) {
-    console.log("array value " + arrayNotes[i]);
     let newDiv = document.createElement("div");
-    console.log(postIndex);
     newDiv.setAttribute("id", "post" + postIndex);
 
     let newInput = document.createElement("input");
@@ -54,11 +52,12 @@ function updateNotes() {
 
   let postArray = [...allPostInput];
 
+  let array;
   if (!localStorage.getItem("notes")) {
     console.log("Local storage notes are empty.");
-    let array = [];
+    array = [];
   } else {
-    let array = postArray;
+    array = postArray;
   }
 
   for (i = 0; i < postArray.length; i++) {
@@ -72,8 +71,6 @@ function updateNotes() {
 function removePost(x) {
   let removalPost = document.getElementById(x);
   removalPost.remove();
-  console.log("BEFORE REMOVAL");
-  console.log(localStorage.getItem("notes"));
   updateNotes();
   console.log("AFTER REMOVAL");
   console.log(localStorage.getItem("notes"));
