@@ -103,4 +103,4 @@ function add() {
   postIndex++;
 }
 
-// setInterval(updateDateTime, 2000);
+setInterval(updateDateTime, 2000);
