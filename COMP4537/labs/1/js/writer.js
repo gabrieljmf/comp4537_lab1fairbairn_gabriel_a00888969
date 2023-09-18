@@ -1,9 +1,8 @@
-function post() {
-  console.log("Script running");
-}
-
-function removePost() {
-  console.log("Removed");
+function removePost(x) {
+  console.log("variable");
+  console.log(x.toString());
+  var removalPost = document.getElementById(x);
+  removalPost.remove();
 }
 
 function updateDateTime() {
@@ -13,12 +12,11 @@ function updateDateTime() {
   document.getElementById("timeStamp").innerHTML = currentDateTime;
   console.log(currentDateTime);
 }
+var postIndex = 0;
 
 function add() {
-  console.log("function works");
-  var newForm = document.createElement("form");
-  newForm.setAttribute("id", "entry");
-  console.log(newForm);
+  var newDiv = document.createElement("div");
+  newDiv.setAttribute("id", "post" + postIndex);
 
   var newInput = document.createElement("input");
   newInput.setAttribute("placeholder", "Enter text here");
@@ -27,15 +25,21 @@ function add() {
   var newRemove = document.createElement("button");
   const removeText = document.createTextNode("Remove");
   newRemove.setAttribute("id", "remove");
-  newRemove.setAttribute("onclick", "removePost()");
+  newRemove.setAttribute("onclick", "removePost('post" + postIndex + "')");
   newRemove.appendChild(removeText);
 
-  newForm.appendChild(newInput);
-  newForm.appendChild(newRemove);
-  const postsDiv = document.getElementById("posts");
-  postsDiv.appendChild(newForm);
-  var br = document.createElement("br");
-  postsDiv.appendChild(br);
+  newDiv.appendChild(newInput);
+  newDiv.appendChild(newRemove);
+
+  var postsDiv = document.getElementById("allPosts");
+  postsDiv.appendChild(newDiv);
+
+  console.log(newDiv);
+  console.log(postIndex);
+  postIndex++;
 }
 
+function test() {
+  console.log("working");
+}
 // setInterval(updateDateTime, 2000);
