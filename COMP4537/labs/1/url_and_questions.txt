@@ -1,0 +1,13 @@
+
+1- open the writer.html and reader.html in two different tabs of same browser. 
+Would the reader.html have access to the content stored in the local storage by the writer.html?
+
+Yes, the reader.html has access to the content stored by writer.
+
+2- open the writer.html and reader.html in two different tabs of two different browsers ( e.g. one in chrome, one in Firefox). 
+Would the reader.html have access to the content stored in the local storage by the writer.html?
+
+No, the two browsers have separate local storages.
+
+URL:
+https://comp4537-lab1.onrender.com

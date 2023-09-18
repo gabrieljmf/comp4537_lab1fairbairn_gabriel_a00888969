@@ -17,22 +17,22 @@ function updateDateTime() {
 }
 
 function startNotes() {
-  var notesString = localStorage.getItem("notes");
-  var arrayNotes = JSON.parse(notesString);
+  let notesString = localStorage.getItem("notes");
+  let arrayNotes = JSON.parse(notesString);
 
   for (i = 0; i < arrayNotes.length; i++) {
     console.log("array value " + arrayNotes[i]);
-    var newDiv = document.createElement("div");
+    let newDiv = document.createElement("div");
     console.log(postIndex);
     newDiv.setAttribute("id", "post" + postIndex);
 
-    var newInput = document.createElement("input");
+    let newInput = document.createElement("input");
     newInput.setAttribute("placeholder", "Enter text here");
     newInput.setAttribute("id", "input");
     newInput.setAttribute("type", "text");
     newInput.value = arrayNotes[i];
 
-    var newRemove = document.createElement("button");
+    let newRemove = document.createElement("button");
     const removeText = document.createTextNode("Remove");
     newRemove.setAttribute("id", "remove");
     newRemove.setAttribute("onclick", "removePost('post" + postIndex + "')");
@@ -41,7 +41,7 @@ function startNotes() {
     newDiv.appendChild(newInput);
     newDiv.appendChild(newRemove);
 
-    var postsDiv = document.getElementById("allPosts");
+    let postsDiv = document.getElementById("allPosts");
     postsDiv.appendChild(newDiv);
     postIndex++;
   }
@@ -52,13 +52,13 @@ function updateNotes() {
     .getElementById("allPosts")
     .getElementsByTagName("input");
 
-  var postArray = [...allPostInput];
+  let postArray = [...allPostInput];
 
   if (!localStorage.getItem("notes")) {
     console.log("Local storage notes are empty.");
-    var array = [];
+    let array = [];
   } else {
-    var array = postArray;
+    let array = postArray;
   }
 
   for (i = 0; i < postArray.length; i++) {
@@ -70,7 +70,7 @@ function updateNotes() {
 }
 
 function removePost(x) {
-  var removalPost = document.getElementById(x);
+  let removalPost = document.getElementById(x);
   removalPost.remove();
   console.log("BEFORE REMOVAL");
   console.log(localStorage.getItem("notes"));
@@ -80,15 +80,15 @@ function removePost(x) {
 }
 
 function add() {
-  var newDiv = document.createElement("div");
+  let newDiv = document.createElement("div");
   newDiv.setAttribute("id", "post" + postIndex);
 
-  var newInput = document.createElement("input");
+  let newInput = document.createElement("input");
   newInput.setAttribute("placeholder", "Enter text here");
   newInput.setAttribute("id", "input");
   newInput.setAttribute("type", "text");
 
-  var newRemove = document.createElement("button");
+  let newRemove = document.createElement("button");
   const removeText = document.createTextNode("Remove");
   newRemove.setAttribute("id", "remove");
   newRemove.setAttribute("onclick", "removePost('post" + postIndex + "')");
@@ -97,7 +97,7 @@ function add() {
   newDiv.appendChild(newInput);
   newDiv.appendChild(newRemove);
 
-  var postsDiv = document.getElementById("allPosts");
+  let postsDiv = document.getElementById("allPosts");
   postsDiv.appendChild(newDiv);
 
   postIndex++;

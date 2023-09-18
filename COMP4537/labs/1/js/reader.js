@@ -11,15 +11,15 @@ function updateReadTime() {
 }
 
 function updateReader() {
-  var allPosts = document.getElementById("allPosts");
+  let allPosts = document.getElementById("allPosts");
   allPosts.innerHTML = "";
 
-  var notesString = localStorage.getItem("notes");
-  var arrayNotes = JSON.parse(notesString);
+  let notesString = localStorage.getItem("notes");
+  let arrayNotes = JSON.parse(notesString);
   console.log(arrayNotes);
 
   for (i = 0; i < arrayNotes.length; i++) {
-    var newDiv = document.createElement("div");
+    let newDiv = document.createElement("div");
     newDiv.setAttribute("id", "readNote");
     newDiv.innerHTML = arrayNotes[i];
     allPosts.appendChild(newDiv);
